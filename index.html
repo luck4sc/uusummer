@@ -10,40 +10,52 @@
     <script src="sketch.js"></script>
 </head>
 <body>
-
+    
 <header>
-    <h1>Hello, World! &#128516;</h1>
+    <h1>t</h1>
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">Home</a>
-        <a href="#nav01">Nav 1</a>
-        <a href="#nav02">Nav 2</a>
-        <a href="#nav03">Nav 3</a>
+        <a href="#nav01" class=>Nav 1</a>
+        <a href="#nav02" class=>Nav 2</a>
+        <a href="#nav03" class=>Nav 3</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
-      </div>
+    </div>
 </header>
 
 <main>
     <div class="container">
-        <div class="content">
-            <p>This is the main content of the page.</p>
-        </div>
         <br>
+
         <div class="column">
-            <p>This is column 1.</p>
+            <a href="dailyxcerpt.html">
+            <button type="button">daily excerpt</button>
+            </a>
         </div>
+
         <div class="column">
-            <p>This is column 2.</p>
+            <p></p>
+            <button type="button">zettelkasten</button>
         </div>
+
         <div class="column">
-            <p>This is column 3.</p>
+            <p></p>
+            <button type="button">inspiration</button>
         </div>
     </div>
 </main>
 
+
 <footer>
-    <p>© 2024 by you!<br>
+    <div class="date">
+        <script>
+            let d = new Date();
+            document.getElementById("date").innerHTML =  d.getMonth() + "/" + d.getDay() + "/" + d.getFullYear() 
+        </script>
+    </div>
+    
+    <p>© 2024 by you!<br>    
         Put some contact info in here!</p>
 </footer>
 
