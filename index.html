@@ -6,58 +6,185 @@
     <title>Web Basics Tutorial</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
     <script src="sketch.js"></script>
 </head>
 <body>
-    
-<header>
-    <h1>t</h1>
-    <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#nav01" class=>Nav 1</a>
-        <a href="#nav02" class=>Nav 2</a>
-        <a href="#nav03" class=>Nav 3</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
+<div class="bg">
+    <img src="summerdays.jpg" alt="">
+</div>
+
+<div class="window active" style="max-width: 100%">
+    <div class="title-bar">
+      <div class="title-bar-text">uusummer</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close"></button>
+      </div>
     </div>
+</div>
+<nav class="topnav">
+        <ul role="menubar" class="can-hover">
+            <li role="menuitem" tabindex="0" aria-haspopup="true">
+              File
+              <ul role="menu">
+                <li role="menuitem">
+                  <a href="#menubar">
+                    Save <span>Ctrl+S</span>
+                  </a>
+                </li>
+                <li role="menuitem" class="has-divider">
+                  <a href="#menubar">
+                    Save As... <span>Ctrl+Shift+S</span>
+                  </a>
+                </li>
+                <li role="menuitem"><a href="#menubar">Exit</a></li>
+              </ul>
+            </li>
+            <li role="menuitem" tabindex="0" aria-haspopup="true">
+              Edit
+              <ul role="menu">
+                <li role="menuitem"><a href="#menubar">Undo</a></li>
+                <li role="menuitem"><a href="#menubar">Copy</a></li>
+                <li role="menuitem" class="has-divider"><a href="#menubar">Paste</a></li>
+                <li role="menuitem"><a href="#menubar">Delete</a></li>
+                <li role="menuitem"><a href="#menubar">Find...</a></li>
+                <li role="menuitem"><a href="#menubar">Replace...</a></li>
+              </ul>
+            </li>
+            <li role="menuitem" tabindex="0" aria-haspopup="true">
+              Customization
+              <ul role="menu">
+                <li role="menuitem" tabindex="0" aria-haspopup="true">
+                  Zoom
+                  <ul role="menu">
+                    <li role="menuitem"><button>Zoom In</button></li>
+                    <li role="menuitem"><button>Zoom Out</button></li>
+                  </ul>
+                </li>
+                <li role="menuitem"><a href="#menubar">Add Media</a></li>
+                <li role="menuitem"><a href="#menubar">Upload Background</a></li>
+                <li role="menuitem"><a href="#menubar">Add New Nodes</a></li>
+                <li role="menuitem"><a href="#menubar">Resize Nodes</a></li>
+              </ul>
+            </li>
+            <li role="menuitem" tabindex="0" aria-haspopup="true">
+              Help
+              <ul role="menu">
+                <li role="menuitem"><a href="#menubar">About</a></li>
+              </ul>
+            </li>
+        </ul>
+</nav>
+
+<header>
 </header>
 
 <main>
     <div class="container">
-        <br>
-
         <div class="column">
-            <a href="dailyxcerpt.html">
-            <button type="button">daily excerpt</button>
-            </a>
-        </div>
-
+          <button class="triggeroverlay" onclick="location.href='#ovrlay'">daily excerpt</button>
+          <div id="ovrlay" class="ovrlay">
+            <div class="newwindow">
+                <div class="window glass active" style="max-width: 100%">
+                  <div class="title-bar">
+                    <div class="title-bar-text">daily excerpt</div>
+                    <div class="title-bar-controls">
+                      <button aria-label="Minimize"></button>
+                      <button aria-label="Maximize"></button>
+                      <button aria-label="Close" class="closewindow" onclick="location.href='#'"></button>            
+                    </div>
+                  </div>
+                  <div class="window-body has-space">
+                    <p>There is so much room to fill with experiences!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <div class="column">
-            <p></p>
             <button type="button">zettelkasten</button>
         </div>
-
         <div class="column">
-            <p></p>
+            <a href="inspiraton.html">
             <button type="button">inspiration</button>
+            </a>
         </div>
     </div>
 </main>
 
+<div class="dates">
+  <div class="window glass active" style="max-width: 300px">
+    <div class="title-bar">
+      <div class="title-bar-text">Current date:</div>
+      <div class="title-bar-controls">
+      </div>
+    </div>
+    <div class="window-body has-space">
+      <p></p>
+      <div id="date">
+        <script>
+          date = new Date();
+          year = date.getFullYear();
+          month = date.getMonth() + 1;
+          day = date.getDate();
+          document.getElementById("date").innerHTML = month + "/" + day + "/" + year;
+      </script>
+      </div>
+      <p></p>
+    </div>
+ </div>
+</div>
 
 <footer>
-    <div class="date">
-        <script>
-            let d = new Date();
-            document.getElementById("date").innerHTML =  d.getMonth() + "/" + d.getDay() + "/" + d.getFullYear() 
-        </script>
+      <div class="window glass active" style="max-width: 300px">
+        <div class="title-bar">
+          <div class="title-bar-text">Current time:</div>
+          <div class="title-bar-controls">
+          </div>
+        </div>
+        <div class="window-body has-space">
+          <p></p>
+          <div id="time">
+          <script>
+              time = new Date();
+              hours = time.getHours();
+              minutes = time.getMinutes();
+              minutes = minutes < 10 ? '0' + minutes : minutes;
+              const ampm = hours >= 12 ? 'PM' : 'AM';
+              hours = hours % 12;
+              hours = hours ? hours : 12; 
+              document.getElementById('time').innerHTML = hours + ":" + minutes + " " +ampm;
+          </script>
+          </div>
+          <p></p>
     </div>
-    
-    <p>© 2024 by you!<br>    
-        Put some contact info in here!</p>
 </footer>
+
+<div class videeooo>
+<div class="window glass active" style="max-width: 500px">
+  <div class="title-bar">
+    <div class="title-bar-text"> media </div>
+    <div class="title-bar-controls">
+    </div>
+  </div>
+  <div class="window-body has-space">
+    <div class="videeoo">
+      <video autoplay loop>
+        <source src="summernights.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 </body>
 </html>
+
